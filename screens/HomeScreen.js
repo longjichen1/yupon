@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import * as Icon from "react-native-feather";
 import Categories from "../components/categories";
-import FeatureRow from "../components/featuredRow";
+import Resturants from "../components/resturants";
 import { featured } from "../constants";
 
 // Enable LayoutAnimation on Android
@@ -27,7 +27,7 @@ if (
 export default function HomeScreen() {
   const [settings, setSettings] = useState(false);
   const rotateValue = useState(new Animated.Value(0))[0];
-
+  const [search, setSearch] = useState("");
   const rotateIcon = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setSettings(!settings);
@@ -45,7 +45,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView className="bg-white">
       <StatusBar barStyle="dark-content" />
-      {/* search bar */}
+
       <View className="flex-row items-center space-x-2 px-4 pb-2 m-2 ">
         <View className="flex-row flex-1 items-center p-3 rounded-full border border-gray-300">
           <Icon.Search height="25" width="25" stroke="gray" />
@@ -53,6 +53,7 @@ export default function HomeScreen() {
             placeholder="Search Yupon"
             className="ml-2 flex-1"
             keyboardType="default"
+            onChangeText={(text) => setSearch(text)}
           />
           <Animated.View style={{ transform: [{ rotate: rotation }] }}>
             <View
@@ -74,27 +75,25 @@ export default function HomeScreen() {
           </Animated.View>
         </View>
       </View>
-      {/* main */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingBottom: 50,
         }}
       >
-        {/* categories */}
         {settings ? <Categories /> : null}
 
-        {/* featured */}
         <View className="mt-5">
-          {[featured, featured, featured].map((category, index) => {
+          {[featured].map((category, index) => {
             return (
-              <FeatureRow
+              <Resturants
+                search={search}
                 key={index}
                 id={category._id}
                 title={category.name}
                 resturants={category?.restaurants}
                 description={category.description}
-                featuredCategory={category._type}
+                category={category.type}
               />
             );
           })}

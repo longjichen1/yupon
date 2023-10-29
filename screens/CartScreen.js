@@ -82,9 +82,6 @@ export default function BasketScreen() {
         <Text style={{ flex: 1, paddingLeft: 16 }}>
           Ready for pickup in 20-30 minutes
         </Text>
-        <TouchableOpacity>
-          <Text style={{ color: "#009950", fontWeight: "bold" }}>Change</Text>
-        </TouchableOpacity>
       </View>
 
       <ScrollView
@@ -112,23 +109,42 @@ export default function BasketScreen() {
               shadowRadius: 4,
             }}
           >
-            <Text style={{ color: "#009950", fontWeight: "bold" }}>
-              {items.length} x
-            </Text>
             <Image
-              style={{ height: 56, width: 56, borderRadius: 28 }}
+              style={{
+                height: 56,
+                width: 56,
+                borderRadius: 28,
+                paddingRight: 5,
+              }}
               source={{ uri: items[0].image }}
             />
-            <Text style={{ flex: 1, fontWeight: "bold", color: "gray" }}>
+            <Text
+              style={{
+                color: "#009950",
+                fontWeight: "bold",
+                paddingLeft: 5,
+              }}
+            >
+              {items.length} x
+            </Text>
+            <Text
+              style={{
+                flex: 1,
+                fontWeight: "bold",
+                color: "gray",
+                paddingLeft: 5,
+              }}
+            >
               {items[0]?.name}
             </Text>
-            <Text style={{ fontWeight: "600", fontSize: 16 }}>
+            <Text style={{ fontWeight: "600", fontSize: 16, paddingRight: 5 }}>
               ${items[0]?.price}
             </Text>
             <TouchableOpacity
               style={{
                 padding: 8,
                 borderRadius: 50,
+                paddingLeft: 8,
                 backgroundColor: `rgba(0, 179, 89, 1)`,
               }}
               onPress={() => {
@@ -160,22 +176,49 @@ export default function BasketScreen() {
           <Text style={{ color: "gray" }}>Subtotal</Text>
           <Text style={{ color: "gray" }}>${basketTotal}</Text>
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingTop: 3,
+          }}
+        >
           <Text style={{ color: "gray" }}>Delivery Fee</Text>
           <Text style={{ color: "gray" }}>${deliveryFee}</Text>
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingTop: 3,
+            borderBottomWidth: 1,
+            paddingBottom: 3,
+          }}
+        >
+          <Text style={{ color: "gray" }}>Points You Earn</Text>
+          <Text style={{ color: "gray" }}>{basketTotal * 2} points</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            paddingTop: 3,
+          }}
+        >
           <Text style={{ fontWeight: "800" }}>Order Total</Text>
           <Text style={{ fontWeight: "800" }}>
             ${basketTotal + deliveryFee}
           </Text>
         </View>
+
         <View>
           <TouchableOpacity
             style={{
               paddingVertical: 12,
               borderRadius: 50,
               backgroundColor: `rgba(0, 179, 89, 1)`,
+              marginTop: 7,
             }}
             onPress={() => navigation.navigate("PreparingOrder")}
           >

@@ -44,15 +44,15 @@ export const featured = {
       description: "Hot and spicy pizzas",
       lng: -85.5324269,
       lat: 38.2145602,
-      address: "434 second street",
+      address: "2938 Forklane Rd, Nashville, TN",
       stars: 4,
       reviews: "4.4k",
       category: "Fast Food",
       dishes: [
         {
           id: 1,
-          name: "pizza",
-          description: "cheezy garlic pizza",
+          name: "Pizza",
+          description: "Garlic pizza",
           price: 10,
           image:
             "https://cdn.discordapp.com/attachments/1167827877224534166/1168024043362988193/Super-Easy-Cheesy-Garlic-Bread-3-500x375.png?ex=65504228&is=653dcd28&hm=851ba344162742b1439ba7b4c262c623e74de8842814bd20a3d09c7873effb42&",
