@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "yupon",
+    "slug": "yupon",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.yupon"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.anonymous.yupon"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "dev-0gdixizh3gmzqor0.us.auth0.com"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ce68d554-9695-4577-8f2f-7b7af2fd8a46"
+      }
+    }
+  }
+}
